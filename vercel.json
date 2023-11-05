@@ -1,28 +1,19 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "sample-ems.html",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*).wasm",
-        "headers": { "Content-Type": "application/wasm" },
-        "dest": "/$1.wasm"
-      }
-    ],
-    "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-store, must-revalidate"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "headers": [
+    {
+      "source": "/(.*)\\.wasm$",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/sample-ems.html"
+    }
+  ]
+}
