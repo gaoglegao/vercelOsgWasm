@@ -1,0 +1,374 @@
+Performing C++ SOURCE FILE Test _OPENTHREADS_ATOMIC_USE_GCC_BUILTINS failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_65d91/fast && /usr/bin/make -f CMakeFiles/cmTC_65d91.dir/build.make CMakeFiles/cmTC_65d91.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_65d91.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS   -o CMakeFiles/cmTC_65d91.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_65d91.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65d91.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++   -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS    @CMakeFiles/cmTC_65d91.dir/objects1.rsp  -o cmTC_65d91.js 
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+...and run output:
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71
+    throw new Error('This emscripten-generated code requires node v16.0.0 (detected v' + nodeVersion + ')');
+    ^
+
+Error: This emscripten-generated code requires node v16.0.0 (detected v10.19.0)
+    at Object.<anonymous> (/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71:11)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+
+Return value: 1
+Source file was:
+
+       #include <cstdlib>
+
+       int main()
+       {
+          unsigned value = 0;
+          void* ptr = &value;
+          __sync_add_and_fetch(&value, 1);
+          __sync_synchronize();
+          __sync_sub_and_fetch(&value, 1);
+          if (!__sync_bool_compare_and_swap(&value, 0, 1))
+             return EXIT_FAILURE;
+
+          if (!__sync_bool_compare_and_swap(&ptr, ptr, ptr))
+             return EXIT_FAILURE;
+
+          return EXIT_SUCCESS;
+       }
+       
+Performing C++ SOURCE FILE Test _OPENTHREADS_ATOMIC_USE_MIPOSPRO_BUILTINS failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f6644/fast && /usr/bin/make -f CMakeFiles/cmTC_f6644.dir/build.make CMakeFiles/cmTC_f6644.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f6644.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_MIPOSPRO_BUILTINS   -o CMakeFiles/cmTC_f6644.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:8:11: error: use of undeclared identifier '__add_and_fetch'
+    8 |           __add_and_fetch(&value, 1);
+      |           ^
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:9:11: error: use of undeclared identifier '__synchronize'
+    9 |           __synchronize(value);
+      |           ^
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:10:11: error: use of undeclared identifier '__sub_and_fetch'
+   10 |           __sub_and_fetch(&value, 1);
+      |           ^
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:11:16: error: use of undeclared identifier '__compare_and_swap'
+   11 |           if (!__compare_and_swap(&value, 0, 1))
+      |                ^
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:14:16: error: use of undeclared identifier '__compare_and_swap'
+   14 |           if (!__compare_and_swap((unsigned long*)&ptr, (unsigned long)ptr, (unsigned long)ptr))
+      |                ^
+5 errors generated.
+em++: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/clang++ -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -DEMSCRIPTEN --sysroot=/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_MIPOSPRO_BUILTINS -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx -o CMakeFiles/cmTC_f6644.dir/src.cxx.o' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_f6644.dir/build.make:66: CMakeFiles/cmTC_f6644.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f6644/fast] Error 2
+
+
+...and run output:
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71
+    throw new Error('This emscripten-generated code requires node v16.0.0 (detected v' + nodeVersion + ')');
+    ^
+
+Error: This emscripten-generated code requires node v16.0.0 (detected v10.19.0)
+    at Object.<anonymous> (/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71:11)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+
+Return value: 1
+Source file was:
+
+       #include <stdlib.h>
+
+       int main(int, const char**)
+       {
+          unsigned value = 0;
+          void* ptr = &value;
+          __add_and_fetch(&value, 1);
+          __synchronize(value);
+          __sub_and_fetch(&value, 1);
+          if (!__compare_and_swap(&value, 0, 1))
+             return EXIT_FAILURE;
+
+          if (!__compare_and_swap((unsigned long*)&ptr, (unsigned long)ptr, (unsigned long)ptr))
+             return EXIT_FAILURE;
+
+          return EXIT_SUCCESS;
+       }
+       
+Performing C++ SOURCE FILE Test _OPENTHREADS_ATOMIC_USE_SUN failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_77d32/fast && /usr/bin/make -f CMakeFiles/cmTC_77d32.dir/build.make CMakeFiles/cmTC_77d32.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_77d32.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_SUN   -o CMakeFiles/cmTC_77d32.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:2:17: fatal error: 'atomic.h' file not found
+    2 |        #include <atomic.h>
+      |                 ^~~~~~~~~~
+1 error generated.
+em++: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/clang++ -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -DEMSCRIPTEN --sysroot=/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_SUN -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx -o CMakeFiles/cmTC_77d32.dir/src.cxx.o' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_77d32.dir/build.make:66: CMakeFiles/cmTC_77d32.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_77d32/fast] Error 2
+
+
+...and run output:
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71
+    throw new Error('This emscripten-generated code requires node v16.0.0 (detected v' + nodeVersion + ')');
+    ^
+
+Error: This emscripten-generated code requires node v16.0.0 (detected v10.19.0)
+    at Object.<anonymous> (/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71:11)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+
+Return value: 1
+Source file was:
+
+       #include <atomic.h>
+       #include <cstdlib>
+
+       int main(int, const char**)
+       {
+          uint_t value = 0;
+          void* ptr = &value;
+          atomic_inc_uint_nv(&value);
+          membar_consumer();
+          atomic_dec_uint_nv(&value);
+          if (0 != atomic_cas_uint(&value, 0, 1))
+             return EXIT_FAILURE;
+
+          if (ptr != atomic_cas_ptr(&ptr, ptr, ptr))
+             return EXIT_FAILURE;
+
+          return EXIT_SUCCESS;
+       }
+       
+Performing C++ SOURCE FILE Test _OPENTHREADS_ATOMIC_USE_WIN32_INTERLOCKED failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3d20a/fast && /usr/bin/make -f CMakeFiles/cmTC_3d20a.dir/build.make CMakeFiles/cmTC_3d20a.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3d20a.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_WIN32_INTERLOCKED   -o CMakeFiles/cmTC_3d20a.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:2:17: fatal error: 'windows.h' file not found
+    2 |        #include <windows.h>
+      |                 ^~~~~~~~~~~
+1 error generated.
+em++: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/clang++ -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -DEMSCRIPTEN --sysroot=/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_WIN32_INTERLOCKED -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx -o CMakeFiles/cmTC_3d20a.dir/src.cxx.o' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_3d20a.dir/build.make:66: CMakeFiles/cmTC_3d20a.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_3d20a/fast] Error 2
+
+
+...and run output:
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71
+    throw new Error('This emscripten-generated code requires node v16.0.0 (detected v' + nodeVersion + ')');
+    ^
+
+Error: This emscripten-generated code requires node v16.0.0 (detected v10.19.0)
+    at Object.<anonymous> (/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71:11)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+
+Return value: 1
+Source file was:
+
+       #include <windows.h>
+       #include <intrin.h>
+       #include <cstdlib>
+
+       #pragma intrinsic(_InterlockedAnd)
+       #pragma intrinsic(_InterlockedOr)
+       #pragma intrinsic(_InterlockedXor)
+
+       int main(int, const char**)
+       {
+          volatile long value = 0;
+          long data = 0;
+          long* volatile ptr = &data;
+
+          InterlockedIncrement(&value);
+          MemoryBarrier();
+          InterlockedDecrement(&value);
+
+          if (0 != InterlockedCompareExchange(&value, 1, 0))
+             return EXIT_FAILURE;
+
+          if (ptr != InterlockedCompareExchangePointer((PVOID volatile*)&ptr, (PVOID)ptr, (PVOID)ptr))
+             return EXIT_FAILURE;
+
+          return EXIT_SUCCESS;
+       }
+       
+Performing C++ SOURCE FILE Test _OPENTHREADS_ATOMIC_USE_BSD_ATOMIC failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f8384/fast && /usr/bin/make -f CMakeFiles/cmTC_f8384.dir/build.make CMakeFiles/cmTC_f8384.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f8384.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_BSD_ATOMIC   -o CMakeFiles/cmTC_f8384.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:2:17: fatal error: 'libkern/OSAtomic.h' file not found
+    2 |        #include <libkern/OSAtomic.h>
+      |                 ^~~~~~~~~~~~~~~~~~~~
+1 error generated.
+em++: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/clang++ -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -DEMSCRIPTEN --sysroot=/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -D_OPENTHREADS_ATOMIC_USE_BSD_ATOMIC -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx -o CMakeFiles/cmTC_f8384.dir/src.cxx.o' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_f8384.dir/build.make:66: CMakeFiles/cmTC_f8384.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f8384/fast] Error 2
+
+
+...and run output:
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71
+    throw new Error('This emscripten-generated code requires node v16.0.0 (detected v' + nodeVersion + ')');
+    ^
+
+Error: This emscripten-generated code requires node v16.0.0 (detected v10.19.0)
+    at Object.<anonymous> (/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/cmTC_65d91.js:71:11)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+
+Return value: 1
+Source file was:
+
+       #include <libkern/OSAtomic.h>
+
+       int main()
+       {
+         volatile int32_t value = 0;
+         long data = 0;
+         long * volatile ptr = &data;
+
+         OSAtomicIncrement32(&value);
+         OSMemoryBarrier();
+         OSAtomicDecrement32(&value);
+         OSAtomicCompareAndSwapInt(value, 1, &value);
+         OSAtomicCompareAndSwapPtr(ptr, ptr, (void * volatile *)&ptr);
+       }
+       
+Determining if the function pthread_yield exists failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dc3a4/fast && /usr/bin/make -f CMakeFiles/cmTC_dc3a4.dir/build.make CMakeFiles/cmTC_dc3a4.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dc3a4.dir/CheckFunctionExists.c.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc   -DCHECK_FUNCTION_EXISTS=pthread_yield   -o CMakeFiles/cmTC_dc3a4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dc3a4.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc3a4.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc  -DCHECK_FUNCTION_EXISTS=pthread_yield    @CMakeFiles/cmTC_dc3a4.dir/objects1.rsp  -o cmTC_dc3a4.js 
+wasm-ld: error: CMakeFiles/cmTC_dc3a4.dir/CheckFunctionExists.c.o: undefined symbol: pthread_yield
+emcc: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/wasm-ld -o cmTC_dc3a4.wasm CMakeFiles/cmTC_dc3a4.dir/CheckFunctionExists.c.o -L/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -lGL -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmpb2t4afg8libemscripten_js_symbols.so --strip-debug --export-if-defined=main --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=__main_argc_argv --export-if-defined=fflush --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=stackSave --export=stackRestore --export=stackAlloc --export=__errno_location --export=__get_temp_ret --export=__set_temp_ret --export=__wasm_call_ctors --export-table -z stack-size=65536 --initial-memory=16777216 --max-memory=16777216 --no-entry --stack-first --table-base=1' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_dc3a4.dir/build.make:88: cmTC_dc3a4.js] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_dc3a4/fast] Error 2
+
+
+
+Determining if the function pthread_setaffinity_np exists failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_76512/fast && /usr/bin/make -f CMakeFiles/cmTC_76512.dir/build.make CMakeFiles/cmTC_76512.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76512.dir/CheckFunctionExists.c.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc   -DCHECK_FUNCTION_EXISTS=pthread_setaffinity_np   -o CMakeFiles/cmTC_76512.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_76512.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76512.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc  -DCHECK_FUNCTION_EXISTS=pthread_setaffinity_np    @CMakeFiles/cmTC_76512.dir/objects1.rsp  -o cmTC_76512.js 
+wasm-ld: error: CMakeFiles/cmTC_76512.dir/CheckFunctionExists.c.o: undefined symbol: pthread_setaffinity_np
+emcc: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/wasm-ld -o cmTC_76512.wasm CMakeFiles/cmTC_76512.dir/CheckFunctionExists.c.o -L/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -lGL -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmpu1clom6hlibemscripten_js_symbols.so --strip-debug --export-if-defined=main --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=__main_argc_argv --export-if-defined=fflush --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=stackSave --export=stackRestore --export=stackAlloc --export=__errno_location --export=__get_temp_ret --export=__set_temp_ret --export=__wasm_call_ctors --export-table -z stack-size=65536 --initial-memory=16777216 --max-memory=16777216 --no-entry --stack-first --table-base=1' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_76512.dir/build.make:88: cmTC_76512.js] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_76512/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test HAVE_THREE_PARAM_SCHED_SETAFFINITY failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d9782/fast && /usr/bin/make -f CMakeFiles/cmTC_d9782.dir/build.make CMakeFiles/cmTC_d9782.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d9782.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -DHAVE_THREE_PARAM_SCHED_SETAFFINITY   -o CMakeFiles/cmTC_d9782.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d9782.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9782.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++   -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -DHAVE_THREE_PARAM_SCHED_SETAFFINITY    @CMakeFiles/cmTC_d9782.dir/objects1.rsp  -o cmTC_d9782.js 
+wasm-ld: error: CMakeFiles/cmTC_d9782.dir/src.cxx.o: undefined symbol: sched_setaffinity
+em++: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/wasm-ld -o cmTC_d9782.wasm CMakeFiles/cmTC_d9782.dir/src.cxx.o -L/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -lGL -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmpvdwjhfx8libemscripten_js_symbols.so --strip-debug --export-if-defined=main --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=__main_argc_argv --export-if-defined=fflush --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=stackSave --export=stackRestore --export=stackAlloc --export=__errno_location --export=__get_temp_ret --export=__set_temp_ret --export=__wasm_call_ctors --export-table -z stack-size=65536 --initial-memory=16777216 --max-memory=16777216 --no-entry --stack-first --table-base=1' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_d9782.dir/build.make:88: cmTC_d9782.js] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_d9782/fast] Error 2
+
+
+Source file was:
+
+            #include <sched.h>
+            int main() {
+            cpu_set_t cpumask;
+            sched_setaffinity( 0, sizeof(cpumask), &cpumask );
+            return 0;
+            }
+Performing C++ SOURCE FILE Test HAVE_TWO_PARAM_SCHED_SETAFFINITY failed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b6a18/fast && /usr/bin/make -f CMakeFiles/cmTC_b6a18.dir/build.make CMakeFiles/cmTC_b6a18.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b6a18.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -DHAVE_TWO_PARAM_SCHED_SETAFFINITY   -o CMakeFiles/cmTC_b6a18.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx:5:19: error: no matching function for call to 'sched_setaffinity'
+    5 |                   sched_setaffinity( 0, &cpumask );
+      |                   ^~~~~~~~~~~~~~~~~
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot/include/sched.h:91:5: note: candidate function not viable: requires 3 arguments, but 2 were provided
+   91 | int sched_setaffinity(pid_t, size_t, const cpu_set_t *);
+      |     ^                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+em++: error: '/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/bin/clang++ -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -DEMSCRIPTEN --sysroot=/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Wall -Wparentheses -Wno-long-long -Wno-import -pedantic -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wunused -Wno-overloaded-virtual -DHAVE_TWO_PARAM_SCHED_SETAFFINITY -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx -o CMakeFiles/cmTC_b6a18.dir/src.cxx.o' failed (returned 1)
+make[1]: *** [CMakeFiles/cmTC_b6a18.dir/build.make:66: CMakeFiles/cmTC_b6a18.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_b6a18/fast] Error 2
+
+
+Source file was:
+
+                #include <sched.h>
+                int main() {
+                  cpu_set_t cpumask;
+                  sched_setaffinity( 0, &cpumask );
+                  return 0;
+                }

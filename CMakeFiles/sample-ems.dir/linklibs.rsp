@@ -1,0 +1,1 @@
+  -L/mnt/d/osgtest/official_osg_web_demo/openscenegraph-cross-platform-guide-application/web/../../OpenSceneGraph/build/Emscripten/lib  -losgViewer -losgDB -losgdb_osg -losgdb_serializers_osg -losgGA -losgText -losgUtil -losg -lOpenThreads -losgDB -losgUtil -losg -lGL -lOpenThreads 

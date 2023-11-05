@@ -1,0 +1,114 @@
+The target system is: Emscripten - 1 - x86
+The host system is: Linux - 4.4.0-19041-Microsoft - x86_64
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_464b7/fast && /usr/bin/make -f CMakeFiles/cmTC_464b7.dir/build.make CMakeFiles/cmTC_464b7.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_464b7.dir/src.c.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_464b7.dir/src.c.o   -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_464b7.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_464b7.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc  -DCMAKE_HAVE_LIBC_PTHREAD    @CMakeFiles/cmTC_464b7.dir/objects1.rsp  -o cmTC_464b7.js 
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test GL_HEADER_HAS_GLINT64 succeeded with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_55dcc/fast && /usr/bin/make -f CMakeFiles/cmTC_55dcc.dir/build.make CMakeFiles/cmTC_55dcc.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_55dcc.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -DGL_HEADER_HAS_GLINT64   -o CMakeFiles/cmTC_55dcc.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_55dcc.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55dcc.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++   -DGL_HEADER_HAS_GLINT64    @CMakeFiles/cmTC_55dcc.dir/objects1.rsp  -o cmTC_55dcc.js 
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <GLES2/gl2.h>
+    
+    int main() { GLint64 test; return 0; }
+Performing C++ SOURCE FILE Test GL_HEADER_HAS_GLUINT64 succeeded with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4c5a3/fast && /usr/bin/make -f CMakeFiles/cmTC_4c5a3.dir/build.make CMakeFiles/cmTC_4c5a3.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4c5a3.dir/src.cxx.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++    -DGL_HEADER_HAS_GLUINT64   -o CMakeFiles/cmTC_4c5a3.dir/src.cxx.o -c /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_4c5a3.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c5a3.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++   -DGL_HEADER_HAS_GLUINT64    @CMakeFiles/cmTC_4c5a3.dir/objects1.rsp  -o cmTC_4c5a3.js 
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <GLES2/gl2.h>
+    
+    int main() { GLuint64 test; return 0; }
+Determining if the function sched_yield exists passed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_af925/fast && /usr/bin/make -f CMakeFiles/cmTC_af925.dir/build.make CMakeFiles/cmTC_af925.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_af925.dir/CheckFunctionExists.c.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc   -DCHECK_FUNCTION_EXISTS=sched_yield   -o CMakeFiles/cmTC_af925.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_af925.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af925.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc  -DCHECK_FUNCTION_EXISTS=sched_yield    @CMakeFiles/cmTC_af925.dir/objects1.rsp  -o cmTC_af925.js 
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pthread_setconcurrency exists passed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5de6e/fast && /usr/bin/make -f CMakeFiles/cmTC_5de6e.dir/build.make CMakeFiles/cmTC_5de6e.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5de6e.dir/CheckFunctionExists.c.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc   -DCHECK_FUNCTION_EXISTS=pthread_setconcurrency   -o CMakeFiles/cmTC_5de6e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5de6e.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5de6e.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc  -DCHECK_FUNCTION_EXISTS=pthread_setconcurrency    @CMakeFiles/cmTC_5de6e.dir/objects1.rsp  -o cmTC_5de6e.js 
+wasm-ld: warning: function signature mismatch: pthread_setconcurrency
+>>> defined as () -> i32 in CMakeFiles/cmTC_5de6e.dir/CheckFunctionExists.c.o
+>>> defined as (i32) -> i32 in /mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libc-debug.a(pthread_setconcurrency.o)
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pthread_getconcurrency exists passed with the following output:
+Change Dir: /mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cc609/fast && /usr/bin/make -f CMakeFiles/cmTC_cc609.dir/build.make CMakeFiles/cmTC_cc609.dir/build
+make[1]: Entering directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc609.dir/CheckFunctionExists.c.o
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc   -DCHECK_FUNCTION_EXISTS=pthread_getconcurrency   -o CMakeFiles/cmTC_cc609.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cc609.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc609.dir/link.txt --verbose=1
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/emcc  -DCHECK_FUNCTION_EXISTS=pthread_getconcurrency    @CMakeFiles/cmTC_cc609.dir/objects1.rsp  -o cmTC_cc609.js 
+make[1]: Leaving directory '/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/CMakeTmp'
+
+
+

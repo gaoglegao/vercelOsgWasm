@@ -1,0 +1,3 @@
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/rebuild_cache.dir
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/edit_cache.dir
+/mnt/d/osgtest/official_osg_web_demo/build/CMakeFiles/sample-ems.dir

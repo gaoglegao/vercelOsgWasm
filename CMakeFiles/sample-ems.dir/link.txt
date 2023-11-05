@@ -1,0 +1,1 @@
+/mnt/d/osgtest/official_osg_web_demo/emsdk/upstream/emscripten/em++  -O3 -DNDEBUG -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2 -s USE_SDL=2  --preload-file box.osgt @CMakeFiles/sample-ems.dir/objects1.rsp  -o sample-ems.html @CMakeFiles/sample-ems.dir/linklibs.rsp

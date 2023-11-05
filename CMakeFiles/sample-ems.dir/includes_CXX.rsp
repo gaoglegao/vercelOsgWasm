@@ -1,0 +1,1 @@
+-I/mnt/d/osgtest/official_osg_web_demo/openscenegraph-cross-platform-guide-application/web/../../OpenSceneGraph/include -I/mnt/d/osgtest/official_osg_web_demo/openscenegraph-cross-platform-guide-application/web/../../OpenSceneGraph/build/Emscripten/include -I/mnt/d/osgtest/official_osg_web_demo/openscenegraph-cross-platform-guide-application/web/src-gen 
